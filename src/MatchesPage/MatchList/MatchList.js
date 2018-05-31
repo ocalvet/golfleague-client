@@ -11,7 +11,7 @@ const MatchList = () => {
   return (
   <div>
     {matches.map(m => (
-      <MatchCard match={m} />
+      <MatchCard key={m.id} match={m} />
     ))}
   </div>
 );
