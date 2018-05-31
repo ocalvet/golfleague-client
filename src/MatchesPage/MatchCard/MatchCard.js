@@ -33,10 +33,10 @@ const MatchCard = ({ classes, match }) => {
       <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title} color="textSecondary">
-            {match.hole}
+            Starting Hole: {match.hole}
           </Typography>
           <Typography variant="headline" component="h2">
-            {match.team1} Vs. {match.team2}
+            {match.team1} <span style={{ fontWeight: 'bold' }}>Vs.</span> {match.team2}
           </Typography>
         </CardContent>
         <CardActions>
