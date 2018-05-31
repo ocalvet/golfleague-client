@@ -1,9 +1,20 @@
 import React from 'react';
+import MatchCard from '../MatchCard/MatchCard';
 
-const MatchList = () => (
+const MatchList = () => {
+  const matches = [{
+    id: 1,
+    team1: 'Ovidio & John',
+    team2: 'Steve & Mark',
+    hole: 18    
+  }];
+  return (
   <div>
-    Matches
+    {matches.map(m => (
+      <MatchCard match={m} />
+    ))}
   </div>
 );
+}
 
 export default MatchList;
