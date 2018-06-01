@@ -7,7 +7,16 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import Divider from '@material-ui/core/Divider';
 import MenuIcon from '@material-ui/icons/Menu';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import HomeIcon from '@material-ui/icons/Home';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import RoomIcon from '@material-ui/icons/Room';
+import ScheduleIcon from '@material-ui/icons/Schedule';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import MatchesPage from './MatchesPage/MatchesPage';
@@ -73,6 +82,33 @@ class App extends React.Component {
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </div>
+        <Divider />
+        <List component="nav">
+          <ListItem button>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="Home" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <SupervisorAccountIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="Standings" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <RoomIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="Scores" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <ScheduleIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="Schedule" />
+          </ListItem>
+        </List>
       </Drawer>
           <main
             className={classNames(classes.content, classes[`content-${anchor}`], {
