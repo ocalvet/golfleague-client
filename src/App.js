@@ -15,8 +15,8 @@ import ScoresPage from './ScoresPage/ScoresPage';
 import SchedulePage from './SchedulePage/SchedulePage';
 import HomePage from './HomePage/HomePage';
 
-
 class App extends React.Component {
+  
   state = {
     isDrawerOpen: false
   };
@@ -28,6 +28,7 @@ class App extends React.Component {
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
     this.handleDrawerClose = this.handleDrawerClose.bind(this);
   }
+
   handleDrawerOpen = () => {
     this.setState({ isDrawerOpen: true });
   };
