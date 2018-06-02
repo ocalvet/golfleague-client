@@ -48,7 +48,7 @@ class ScoresPage extends React.Component {
               <TableRow>
                 <TableCell>Team</TableCell>
                 <TableCell numeric>Latest Handicap</TableCell>
-                {data[0].scores.map((s, i) => <TableCell numeric>Week {i+1}</TableCell>)}
+                {data[0].scores.map((s, i) => <TableCell key={i} numeric>Week {i+1}</TableCell>)}
               </TableRow>
             </TableHead>
             <TableBody>
@@ -59,7 +59,7 @@ class ScoresPage extends React.Component {
                       {n.name}
                     </TableCell>
                     <TableCell numeric>{n.handicap}</TableCell>
-                    {n.scores.map(s => <TableCell numeric>{s}</TableCell>)}
+                    {n.scores.map((s, i) => <TableCell key={i} numeric>{s}</TableCell>)}
                   </TableRow>
                 );
               })}
