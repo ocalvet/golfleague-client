@@ -8,6 +8,9 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const styles = {
+  cardContainer: {
+    marginBottom: 20
+  },
   card: {
     minWidth: 275,
   },
@@ -29,7 +32,7 @@ const styles = {
 const MatchCard = ({ classes, match }) => {
 
     return (
-      <div>
+      <div className={classes.cardContainer}>
       <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title} color="textSecondary">
