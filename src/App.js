@@ -115,7 +115,7 @@ class App extends React.Component {
               </ListItemIcon>
               <ListItemText inset primary="Matches" />
             </ListItem>
-            <ListItem button>
+            <ListItem button onClick={() => this.navigate('/standings')}>
               <ListItemIcon>
                 <SupervisorAccountIcon />
               </ListItemIcon>
