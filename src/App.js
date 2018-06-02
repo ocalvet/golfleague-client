@@ -22,6 +22,14 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import MatchesPage from './MatchesPage/MatchesPage';
 import styles from './AppStyles';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
+import StandingsPage from './Standings/StandingsPage';
+import HomePage from './HomePage/HomePage';
+
 
 class App extends React.Component {
   state = {
@@ -29,6 +37,10 @@ class App extends React.Component {
     anchor: 'left',
   };
 
+  constructor(props) {
+    super(props)
+    this.router = undefined;
+  }
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
@@ -43,91 +55,100 @@ class App extends React.Component {
     });
   };
 
+  navigate(to) {
+    console.log('CTX', this.router)
+    this.router.history.push(to);
+  }
+
   render() {
     const { classes, theme } = this.props;
     const { anchor, open } = this.state;
 
     return (
-      <div className={classes.root}>
-        <div className={classes.appFrame}>
-          <AppBar
-            className={classNames(classes.appBar, {
-              [classes.appBarShift]: open,
-              [classes[`appBarShift-${anchor}`]]: open,
-            })}
-          >
-            <Toolbar disableGutters={!open}>
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={this.handleDrawerOpen}
-                className={classNames(classes.menuButton, open && classes.hide)}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography variant="title" color="inherit" noWrap>
-                NCCI Golf League
-              </Typography>
-            </Toolbar>
-          </AppBar>
-          <Drawer
-        variant="persistent"
-        anchor={anchor}
-        open={open}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={this.handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
+      <Router ref={ el => this.router = el }>
+        <div className={classes.root}>
+          <div className={classes.appFrame}>
+            <AppBar
+              className={classNames(classes.appBar, {
+                [classes.appBarShift]: open,
+                [classes[`appBarShift-${anchor}`]]: open,
+              })}
+            >
+              <Toolbar disableGutters={!open}>
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  onClick={this.handleDrawerOpen}
+                  className={classNames(classes.menuButton, open && classes.hide)}
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Typography variant="title" color="inherit" noWrap>
+                  NCCI Golf League
+                </Typography>
+              </Toolbar>
+            </AppBar>
+            <Drawer
+          variant="persistent"
+          anchor={anchor}
+          open={open}
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+        >
+          <div className={classes.drawerHeader}>
+            <IconButton onClick={this.handleDrawerClose}>
+              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            </IconButton>
+          </div>
+          <Divider />
+          <List component="nav">
+            <ListItem button onClick={() => this.navigate('/')}>
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
+              <ListItemText inset primary="Home" />
+            </ListItem>
+            <ListItem button onClick={() => this.navigate('/matches')}>
+              <ListItemIcon>
+                <AssignmentIcon />
+              </ListItemIcon>
+              <ListItemText inset primary="Matches" />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <SupervisorAccountIcon />
+              </ListItemIcon>
+              <ListItemText inset primary="Standings" />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <RoomIcon />
+              </ListItemIcon>
+              <ListItemText inset primary="Scores" />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <ScheduleIcon />
+              </ListItemIcon>
+              <ListItemText inset primary="Schedule" />
+            </ListItem>
+          </List>
+        </Drawer>
+            <main
+              className={classNames(classes.content, classes[`content-${anchor}`], {
+                [classes.contentShift]: open,
+                [classes[`contentShift-${anchor}`]]: open,
+              })}
+            >
+              <div className={classes.drawerHeader} />
+              <Route exact path="/" component={HomePage}/>
+              <Route path="/matches" component={MatchesPage}/>
+              <Route path="/standings" component={StandingsPage}/>
+            </main>
+          </div>
         </div>
-        <Divider />
-        <List component="nav">
-          <ListItem button>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="Home" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="Matches" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <SupervisorAccountIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="Standings" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <RoomIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="Scores" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <ScheduleIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="Schedule" />
-          </ListItem>
-        </List>
-      </Drawer>
-          <main
-            className={classNames(classes.content, classes[`content-${anchor}`], {
-              [classes.contentShift]: open,
-              [classes[`contentShift-${anchor}`]]: open,
-            })}
-          >
-            <div className={classes.drawerHeader} />
-            <MatchesPage />
-          </main>
-        </div>
-      </div>
+      </Router>
     );
   }
 }
