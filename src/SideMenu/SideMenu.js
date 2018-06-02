@@ -51,13 +51,13 @@ const SideMenu = ({ classes, theme, drawerOpen, handleDrawerClose, navigate }) =
           </ListItemIcon>
           <ListItemText inset primary="Standings" />
         </ListItem>
-        <ListItem button>
+        <ListItem button onClick={() => navigate('/scores')}>
           <ListItemIcon>
             <RoomIcon />
           </ListItemIcon>
           <ListItemText inset primary="Scores" />
         </ListItem>
-        <ListItem button>
+        <ListItem button onClick={() => navigate('/schedule')}>
           <ListItemIcon>
             <ScheduleIcon />
           </ListItemIcon>

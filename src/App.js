@@ -2,16 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import MatchesPage from './MatchesPage/MatchesPage';
 import styles from './AppStyles';
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import StandingsPage from './Standings/StandingsPage';
-import HomePage from './HomePage/HomePage';
 import Header from './Header/Header';
 import SideMenu from './SideMenu/SideMenu';
+import MatchesPage from './MatchesPage/MatchesPage';
+import StandingsPage from './StandingsPage/StandingsPage';
+import ScoresPage from './ScoresPage/ScoresPage';
+import SchedulePage from './SchedulePage/SchedulePage';
+import HomePage from './HomePage/HomePage';
 
 
 class App extends React.Component {
@@ -35,7 +37,6 @@ class App extends React.Component {
   };
 
   navigate(to) {
-    console.log(this);
     this.router.history.push(to);
     this.handleDrawerClose();
   }
@@ -60,6 +61,8 @@ class App extends React.Component {
               <Route exact path="/" component={HomePage} />
               <Route path="/matches" component={MatchesPage} />
               <Route path="/standings" component={StandingsPage} />
+              <Route path="/scores" component={ScoresPage} />
+              <Route path="/schedule" component={SchedulePage} />
             </main>
           </div>
         </div>
