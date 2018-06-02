@@ -4,7 +4,7 @@ class ScoreMatchPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Score Match Page</h1>
+        <h4>Score Match Page</h4>
       </div>
     )
   }

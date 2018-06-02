@@ -14,6 +14,7 @@ import StandingsPage from './StandingsPage/StandingsPage';
 import ScoresPage from './ScoresPage/ScoresPage';
 import SchedulePage from './SchedulePage/SchedulePage';
 import HomePage from './HomePage/HomePage';
+import ScoreMatchPage from './ScoreMatchPage/ScoreMatchPage';
 
 class App extends React.Component {
   
@@ -64,6 +65,7 @@ class App extends React.Component {
               <Route path="/standings" component={StandingsPage} />
               <Route path="/scores" component={ScoresPage} />
               <Route path="/schedule" component={SchedulePage} />
+              <Route path="/score" component={ScoreMatchPage} />
             </main>
           </div>
         </div>

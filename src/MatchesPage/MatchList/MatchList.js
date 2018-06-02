@@ -1,7 +1,7 @@
 import React from 'react';
 import MatchCard from '../MatchCard/MatchCard';
 
-const MatchList = () => {
+const MatchList = ({ scoreMatch }) => {
   const matches = [{
     id: 1,
     team1: 'Ovidio & John',
@@ -31,7 +31,7 @@ const MatchList = () => {
   return (
   <div>
     {matches.map(m => (
-      <MatchCard key={m.id} match={m} />
+      <MatchCard key={m.id} match={m} onMatchSelected={() => scoreMatch(m)}/>
     ))}
   </div>
 );

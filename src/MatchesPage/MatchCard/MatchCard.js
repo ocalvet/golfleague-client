@@ -29,7 +29,7 @@ const styles = {
 };
 
 
-const MatchCard = ({ classes, match, matchSelected }) => {
+const MatchCard = ({ classes, match, onMatchSelected }) => {
 
     return (
       <div className={classes.cardContainer}>
@@ -43,7 +43,7 @@ const MatchCard = ({ classes, match, matchSelected }) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={matchSelected}>Score</Button>
+          <Button size="small" onClick={onMatchSelected}>Score</Button>
         </CardActions>
       </Card>
     </div>
