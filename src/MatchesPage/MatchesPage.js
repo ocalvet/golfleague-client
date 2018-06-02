@@ -5,7 +5,7 @@ class MatchesPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Matches Page</h1>
+        <h4>Matches Page</h4>
         <MatchList />
       </div>
     )
