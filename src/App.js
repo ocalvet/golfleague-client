@@ -3,12 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
-import MenuIcon from '@material-ui/icons/Menu';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -29,6 +25,7 @@ import {
 } from 'react-router-dom';
 import StandingsPage from './Standings/StandingsPage';
 import HomePage from './HomePage/HomePage';
+import Header from './Header/Header';
 
 
 class App extends React.Component {
@@ -65,76 +62,57 @@ class App extends React.Component {
     const { anchor, open } = this.state;
 
     return (
-      <Router ref={ el => this.router = el }>
+      <Router ref={el => this.router = el}>
         <div className={classes.root}>
           <div className={classes.appFrame}>
-            <AppBar
-              className={classNames(classes.appBar, {
-                [classes.appBarShift]: open,
-                [classes[`appBarShift-${anchor}`]]: open,
-              })}
-            >
-              <Toolbar disableGutters={!open}>
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  onClick={this.handleDrawerOpen}
-                  className={classNames(classes.menuButton, open && classes.hide)}
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Typography variant="title" color="inherit" noWrap>
-                  NCCI Golf League
-                </Typography>
-              </Toolbar>
-            </AppBar>
+            <Header open={open} anchor={anchor} handleDrawerOpen={this.handleDrawerOpen}/>
             <Drawer
-          variant="persistent"
-          anchor={anchor}
-          open={open}
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-        >
-          <div className={classes.drawerHeader}>
-            <IconButton onClick={this.handleDrawerClose}>
-              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-            </IconButton>
-          </div>
-          <Divider />
-          <List component="nav">
-            <ListItem button onClick={() => this.navigate('/')}>
-              <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
-              <ListItemText inset primary="Home" />
-            </ListItem>
-            <ListItem button onClick={() => this.navigate('/matches')}>
-              <ListItemIcon>
-                <AssignmentIcon />
-              </ListItemIcon>
-              <ListItemText inset primary="Matches" />
-            </ListItem>
-            <ListItem button onClick={() => this.navigate('/standings')}>
-              <ListItemIcon>
-                <SupervisorAccountIcon />
-              </ListItemIcon>
-              <ListItemText inset primary="Standings" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <RoomIcon />
-              </ListItemIcon>
-              <ListItemText inset primary="Scores" />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                <ScheduleIcon />
-              </ListItemIcon>
-              <ListItemText inset primary="Schedule" />
-            </ListItem>
-          </List>
-        </Drawer>
+              variant="persistent"
+              anchor={anchor}
+              open={open}
+              classes={{
+                paper: classes.drawerPaper,
+              }}
+            >
+              <div className={classes.drawerHeader}>
+                <IconButton onClick={this.handleDrawerClose}>
+                  {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                </IconButton>
+              </div>
+              <Divider />
+              <List component="nav">
+                <ListItem button onClick={() => this.navigate('/')}>
+                  <ListItemIcon>
+                    <HomeIcon />
+                  </ListItemIcon>
+                  <ListItemText inset primary="Home" />
+                </ListItem>
+                <ListItem button onClick={() => this.navigate('/matches')}>
+                  <ListItemIcon>
+                    <AssignmentIcon />
+                  </ListItemIcon>
+                  <ListItemText inset primary="Matches" />
+                </ListItem>
+                <ListItem button onClick={() => this.navigate('/standings')}>
+                  <ListItemIcon>
+                    <SupervisorAccountIcon />
+                  </ListItemIcon>
+                  <ListItemText inset primary="Standings" />
+                </ListItem>
+                <ListItem button>
+                  <ListItemIcon>
+                    <RoomIcon />
+                  </ListItemIcon>
+                  <ListItemText inset primary="Scores" />
+                </ListItem>
+                <ListItem button>
+                  <ListItemIcon>
+                    <ScheduleIcon />
+                  </ListItemIcon>
+                  <ListItemText inset primary="Schedule" />
+                </ListItem>
+              </List>
+            </Drawer>
             <main
               className={classNames(classes.content, classes[`content-${anchor}`], {
                 [classes.contentShift]: open,
@@ -142,9 +120,9 @@ class App extends React.Component {
               })}
             >
               <div className={classes.drawerHeader} />
-              <Route exact path="/" component={HomePage}/>
-              <Route path="/matches" component={MatchesPage}/>
-              <Route path="/standings" component={StandingsPage}/>
+              <Route exact path="/" component={HomePage} />
+              <Route path="/matches" component={MatchesPage} />
+              <Route path="/standings" component={StandingsPage} />
             </main>
           </div>
         </div>
