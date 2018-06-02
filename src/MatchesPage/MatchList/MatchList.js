@@ -7,6 +7,26 @@ const MatchList = () => {
     team1: 'Ovidio & John',
     team2: 'Steve & Mark',
     hole: 18    
+  },{
+    id: 1,
+    team1: 'Ovidio & John',
+    team2: 'Steve & Mark',
+    hole: 18    
+  },{
+    id: 1,
+    team1: 'Ovidio & John',
+    team2: 'Steve & Mark',
+    hole: 18    
+  },{
+    id: 1,
+    team1: 'Ovidio & John',
+    team2: 'Steve & Mark',
+    hole: 18    
+  },{
+    id: 1,
+    team1: 'Ovidio & John',
+    team2: 'Steve & Mark',
+    hole: 18    
   }];
   return (
   <div>
