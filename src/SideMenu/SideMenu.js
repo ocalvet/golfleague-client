@@ -17,11 +17,11 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import styles from './SideMenuStyles';
 
-const SideMenu = ({ classes, theme, open, handleDrawerClose, navigate }) => {
+const SideMenu = ({ classes, theme, drawerOpen, handleDrawerClose, navigate }) => {
   return (
     <Drawer
       variant="persistent"
-      open={open}
+      open={drawerOpen}
       classes={{
         paper: classes.drawerPaper,
       }}
@@ -71,6 +71,9 @@ const SideMenu = ({ classes, theme, open, handleDrawerClose, navigate }) => {
 SideMenu.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  drawerOpen: PropTypes.bool.isRequired,
+  handleDrawerClose: PropTypes.func.isRequired,
+  navigate: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(SideMenu);

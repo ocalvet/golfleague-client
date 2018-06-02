@@ -16,20 +16,22 @@ import SideMenu from './SideMenu/SideMenu';
 
 class App extends React.Component {
   state = {
-    open: false
+    isDrawerOpen: false
   };
 
   constructor(props) {
     super(props)
     this.router = undefined;
     this.navigate = this.navigate.bind(this);
+    this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
+    this.handleDrawerClose = this.handleDrawerClose.bind(this);
   }
   handleDrawerOpen = () => {
-    this.setState({ open: true });
+    this.setState({ isDrawerOpen: true });
   };
 
   handleDrawerClose = () => {
-    this.setState({ open: false });
+    this.setState({ isDrawerOpen: false });
   };
 
   navigate(to) {
@@ -40,18 +42,18 @@ class App extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { open } = this.state;
+    const { isDrawerOpen } = this.state;
 
     return (
       <Router ref={el => this.router = el}>
         <div className={classes.root}>
           <div className={classes.appFrame}>
-            <Header open={open} handleDrawerOpen={this.handleDrawerOpen}/>
-            <SideMenu open={open} handleDrawerClose={this.handleDrawerClose} navigate={this.navigate}/>
+            <Header drawerOpen={isDrawerOpen} handleDrawerOpen={this.handleDrawerOpen}/>
+            <SideMenu drawerOpen={isDrawerOpen} handleDrawerClose={this.handleDrawerClose} navigate={this.navigate}/>
             <main
               className={classNames(classes.content, classes[`content-left`], {
-                [classes.contentShift]: open,
-                [classes[`contentShift-left`]]: open,
+                [classes.contentShift]: isDrawerOpen,
+                [classes[`contentShift-left`]]: isDrawerOpen,
               })}
             >
               <div className={classes.drawerHeader} />
