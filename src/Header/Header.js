@@ -8,13 +8,12 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import styles from './HeaderStyles';
 
-const Header = ({ classes, open, anchor, handleDrawerOpen }) => {
-  console.log('HEADER', classes, open, anchor);
+const Header = ({ classes, open, handleDrawerOpen }) => {
   return (
     <AppBar
       className={classNames(classes.appBar, {
         [classes.appBarShift]: open,
-        [classes[`appBarShift-${anchor}`]]: open,
+        [classes[`appBarShift-left`]]: open,
       })}
     >
       <Toolbar disableGutters={!open}>

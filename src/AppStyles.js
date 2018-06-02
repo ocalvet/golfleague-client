@@ -19,10 +19,6 @@ export default theme => ({
     hide: {
       display: 'none',
     },
-    drawerPaper: {
-      position: 'relative',
-      width: drawerWidth,
-    },
     drawerHeader: {
       display: 'flex',
       alignItems: 'center',
@@ -42,9 +38,6 @@ export default theme => ({
     'content-left': {
       marginLeft: -drawerWidth,
     },
-    'content-right': {
-      marginRight: -drawerWidth,
-    },
     contentShift: {
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.easeOut,
@@ -53,8 +46,5 @@ export default theme => ({
     },
     'contentShift-left': {
       marginLeft: 0,
-    },
-    'contentShift-right': {
-      marginRight: 0,
     },
   });
