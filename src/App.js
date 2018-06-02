@@ -56,8 +56,8 @@ class App extends React.Component {
   };
 
   navigate(to) {
-    console.log('CTX', this.router)
     this.router.history.push(to);
+    this.handleDrawerClose();
   }
 
   render() {
