@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
@@ -7,6 +8,8 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
+import { updateWeather } from './actions/selections';
+import {OPEN_WEATHER_APIKEY} from './shared/secrets';
 import Header from './Header/Header';
 import SideMenu from './SideMenu/SideMenu';
 import MatchesPage from './MatchesPage/MatchesPage';
@@ -28,6 +31,19 @@ class App extends React.Component {
     this.navigate = this.navigate.bind(this);
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
     this.handleDrawerClose = this.handleDrawerClose.bind(this);
+  }
+
+  async componentDidMount() {
+    try {
+      const {onWeatherUpdated} = this.props;
+      const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=33445,us&APPID=${OPEN_WEATHER_APIKEY}&units=imperial`);
+      const weatherData = await response.json();
+      console.log('weather data', weatherData);
+      const weatherString = `Wind Speed: ${weatherData.wind.speed}, Temp: ${weatherData.main.temp}, Description: ${weatherData.weather[0].description}`;
+      onWeatherUpdated(weatherString);
+    } catch (e) {
+      console.log('ERROR', e);
+    }
   }
 
   handleDrawerOpen = () => {
@@ -78,4 +94,9 @@ App.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(App);
+const mapStateToProps = state => ({});
+const mapDispatchToProps = dispatch => ({
+  onWeatherUpdated: weather => dispatch(updateWeather(weather))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(App));
