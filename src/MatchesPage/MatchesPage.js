@@ -9,7 +9,7 @@ class MatchesPage extends React.Component {
     return (
       <div>
         <h4>Matches Page</h4>
-        <MatchList scoreMatch={(m) => {
+        <MatchList matches={matches} scoreMatch={(m) => {
           console.log('scoring', m) 
           history.push('/score', { match: m });
         }}/>
