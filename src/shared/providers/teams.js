@@ -2,6 +2,9 @@ export const getTeams = () => {
   return Promise.resolve([{ 
     id: 1, 
     rank: 1,
+    league: 'American',
+    gameWons: 5,
+    gamesLost: 1,
     players:[{ 
       id: 1, 
       name: 'Mike Hudik',
@@ -13,7 +16,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 2, 
-    rank: 1,
+    rank: 5,
+    league: 'American',
+    gameWons: 3,
+    gamesLost: 3,
     players:[{ 
       id: 3, 
       name: 'Chris Bennett',
@@ -25,7 +31,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 3, 
-    rank: 1,
+    rank: 4,
+    gameWons: 4,
+    gamesLost: 2,
+    league: 'American',
     players:[{ 
       id: 5, 
       name: 'Mark Mileusnic',
@@ -41,7 +50,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 4, 
-    rank: 1,
+    rank: 9,
+    league: 'American',
+    gameWons: 1,
+    gamesLost: 5,
     players:[{ 
       id: 8, 
       name: 'John Dunagan',
@@ -53,7 +65,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 5, 
-    rank: 1,
+    rank: 8,
+    league: 'American',
+    gameWons: 1,
+    gamesLost: 5,
     players:[{ 
       id: 10, 
       name: 'Rich Berger',
@@ -65,7 +80,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 6, 
-    rank: 1,
+    rank: 2,
+    league: 'American',
+    gameWons: 5,
+    gamesLost: 1,
     players:[{ 
       id: 12, 
       name: 'Lisa Jarnot',
@@ -77,7 +95,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 7, 
-    rank: 1,
+    rank: 3,
+    league: 'American',
+    gameWons: 5,
+    gamesLost: 1,
     players:[{ 
       id: 14, 
       name: 'Madhu Akella',
@@ -89,7 +110,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 8, 
-    rank: 1,
+    rank: 6,
+    league: 'American',
+    gameWons: 4,
+    gamesLost: 2,
     players:[{ 
       id: 16, 
       name: 'Greg Nichols',
@@ -101,7 +125,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 9, 
-    rank: 1,
+    rank: 7,
+    league: 'American',
+    gameWons: 2,
+    gamesLost: 4,
     players:[{ 
       id: 18, 
       name: 'James King',
@@ -113,7 +140,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 10, 
-    rank: 1,
+    rank: 5,
+    league: 'National',
+    gameWons: 2.5,
+    gamesLost: 3.5,
     players:[{ 
       id: 20, 
       name: 'Hal Venoff',
@@ -125,7 +155,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 11, 
-    rank: 1,
+    rank: 3,
+    league: 'National',
+    gameWons: 3,
+    gamesLost: 3,
     players:[{ 
       id: 22, 
       name: 'Kevin Ott',
@@ -137,7 +170,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 12, 
-    rank: 1,
+    rank: 6,
+    league: 'National',
+    gameWons: 3,
+    gamesLost: 3,
     players:[{ 
       id: 24, 
       name: 'Cary Ginter',
@@ -149,7 +185,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 13, 
-    rank: 1,
+    rank: 7,
+    league: 'National',
+    gameWons: 2,
+    gamesLost: 4,
     players:[{ 
       id: 26, 
       name: 'Damon Raben',
@@ -161,7 +200,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 14, 
-    rank: 1,
+    rank: 2,
+    league: 'National',
+    gameWons: 5,
+    gamesLost: 1,
     players:[{ 
       id: 28, 
       name: 'John Oplinger',
@@ -173,7 +215,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 15, 
-    rank: 1,
+    rank: 8,
+    league: 'National',
+    gameWons: 0.5,
+    gamesLost: 5.5,
     players:[{ 
       id: 30, 
       name: 'Harry McAllister',
@@ -185,7 +230,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 16, 
-    rank: 1,
+    rank: 4,
+    league: 'National',
+    gameWons: 3,
+    gamesLost: 3,
     players:[{ 
       id: 32, 
       name: 'Chris Brown',
@@ -198,6 +246,9 @@ export const getTeams = () => {
   },{ 
     id: 17, 
     rank: 1,
+    league: 'National',
+    gameWons: 5,
+    gamesLost: 1,
     players:[{ 
       id: 34, 
       name: 'Kerry Johnson',
@@ -209,7 +260,10 @@ export const getTeams = () => {
     }]
   },{ 
     id: 18, 
-    rank: 1,
+    rank: 9,
+    league: 'National',
+    gameWons: 0,
+    gamesLost: 6,
     players:[{ 
       id: 36, 
       name: 'John Falcone',
