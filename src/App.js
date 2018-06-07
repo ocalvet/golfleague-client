@@ -39,8 +39,12 @@ class App extends React.Component {
       const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=33445,us&APPID=${OPEN_WEATHER_APIKEY}&units=imperial`);
       const weatherData = await response.json();
       console.log('weather data', weatherData);
-      const weatherString = `Wind Speed: ${weatherData.wind.speed}, Temp: ${weatherData.main.temp}, Description: ${weatherData.weather[0].description}`;
-      onWeatherUpdated(weatherString);
+      if (weatherData && weatherData.cod && weatherData.cod !== 401) {
+        const weatherString = `Wind Speed: ${weatherData.wind.speed}, Temp: ${weatherData.main.temp}, Description: ${weatherData.weather[0].description}`;
+        onWeatherUpdated(weatherString);
+      } else {
+        onWeatherUpdated('weather information server is down');
+      }
     } catch (e) {
       console.log('ERROR', e);
     }
