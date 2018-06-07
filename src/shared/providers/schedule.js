@@ -1,5 +1,5 @@
 export const getWeekSchedule = (weekNumber) => {
-  return Promise.resolve([{
+  return Promise.resolve({
     side: 'Back',
     week: weekNumber,
     date: new Date(),
@@ -49,5 +49,5 @@ export const getWeekSchedule = (weekNumber) => {
       team1: 16,
       team2: 15
     }]
-  }]);
+  });
 }
