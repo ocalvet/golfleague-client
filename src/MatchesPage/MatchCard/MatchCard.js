@@ -38,8 +38,14 @@ const MatchCard = ({ classes, match, onMatchSelected }) => {
           <Typography className={classes.title} color="textSecondary">
             Starting Hole: {match.hole}
           </Typography>
-          <Typography variant="headline" component="h2">
-            {match.team1} <span style={{ fontWeight: 'bold' }}>Vs.</span> {match.team2}
+          <Typography variant="headline" component="h2" align="center">
+            {match.team1}         
+          </Typography>
+          <Typography variant="headline" component="h2" align="center">
+            <span style={{ fontWeight: 'bold' }}>Vs.</span>
+          </Typography>
+          <Typography variant="headline" component="h2" align="center">
+            {match.team2}
           </Typography>
         </CardContent>
         <CardActions>

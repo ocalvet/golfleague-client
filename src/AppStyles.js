@@ -8,6 +8,7 @@ export default theme => ({
       height:  '100vh',
       zIndex: 1,
       overflow: 'hidden',
+      overflowY: 'auto',
       position: 'relative',
       display: 'flex',
       width: '100%',
