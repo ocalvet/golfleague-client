@@ -8,7 +8,8 @@ import * as _ from 'lodash';
 
 class ScoreMatchPage extends React.Component {
   state = {
-    holes: []
+    holes: [],
+    score: 4
   }
   async componentDidMount() {
     try {
@@ -17,6 +18,13 @@ class ScoreMatchPage extends React.Component {
     } catch (e) {
       console.log('ERROR  getting holes', e);
     }
+  }
+
+  handleChange (event) {
+    this.setState({
+      ...this.state,
+      score: event.target.value
+    })
   }
 
   render() {
@@ -36,8 +44,8 @@ class ScoreMatchPage extends React.Component {
         >
         <InputLabel htmlFor="score">Score</InputLabel>
         <Select
-          value={match.hole}
-          onChange={this.handleChange}
+          value={this.state.score}
+          onChange={(e) => this.handleChange(e)}
           inputProps={{
             name: 'score',
             id: 'score',
