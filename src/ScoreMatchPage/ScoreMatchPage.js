@@ -52,6 +52,7 @@ class ScoreMatchPage extends React.Component {
           }}
         >
         {menuItems}
+        <MenuItem value={0}>Pick Up</MenuItem>
         </Select>
       </FormControl>
     </form> 
