@@ -1,0 +1,13 @@
+[{
+  "_id": "abc12345",
+  "number": 1,
+  "players": [{
+    "_id": "1",
+    "name": "Ovidio Calvet",
+    "handicap": 18
+  },{
+    "_id": "2",
+    "name": "John Falcone",
+    "handicap": 18
+  }]
+}]
