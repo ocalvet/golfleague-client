@@ -1,0 +1,12 @@
+[{
+  "_id": "1",
+  "date": "10/1/2018",
+  "location": "front",
+  "scores": [{
+    "hole": 1,
+    "teamId": "sadsda",
+    "playerId": "1",
+    "score": 4,
+    "par": 5
+  }]
+}]
