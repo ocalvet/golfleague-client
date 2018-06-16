@@ -30,7 +30,7 @@ const styles = {
 
 
 const MatchCard = ({ classes, match, onMatchSelected }) => {
-
+    console.log('MATCH ---', match);
     return (
       <div className={classes.cardContainer}>
       <Card className={classes.card}>
@@ -39,13 +39,13 @@ const MatchCard = ({ classes, match, onMatchSelected }) => {
             Starting Hole: {match.hole}
           </Typography>
           <Typography variant="title" component="h2" align="center">
-            {match.team1}         
+            {match.team1.players[0].name} & {match.team1.players[1].name}       
           </Typography>
           <Typography variant="subheading" component="h2" align="center">
             <span style={{ fontWeight: 'bold' }}>Vs.</span>
           </Typography>
           <Typography variant="title" component="h2" align="center">
-            {match.team2}
+            {match.team2.players[0].name} & {match.team2.players[1].name}
           </Typography>
         </CardContent>
         <CardActions>

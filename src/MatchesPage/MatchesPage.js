@@ -21,11 +21,11 @@ class MatchesPage extends React.Component {
           return {
             id: m.id,
             hole: m.hole,
-            team1: `${team1.players[0].name} & ${team1.players[1].name}`,
-            team2: `${team2.players[0].name} & ${team2.players[1].name}`,
+            team1,
+            team2
           }
         })
-        .tap(console.log)
+        // .tap(console.log)
         .value();
       const { onMatchesLoaded } = this.props;
       onMatchesLoaded(matches);
@@ -35,14 +35,14 @@ class MatchesPage extends React.Component {
   }
   render() {
     const { history, matches } = this.props;
-    console.log('MATCHES', matches);
+    // console.log('MATCHES', matches);
     return (
       <div>
         <Typography variant="headline" component="h2" align="center" style={{ marginBottom: 15 }}>
           Matches
         </Typography>
         <MatchList matches={matches} scoreMatch={(m) => {
-          console.log('scoring', m)
+          // console.log('scoring', m)
           history.push('/score', { match: m });
         }} />
       </div>

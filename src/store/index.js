@@ -7,22 +7,7 @@ export default () => {
       selectedWeek: new Date(2018, 5, 5),
       weather: 'loading...'
     },
-    matches: [{
-      id: 1,
-      team1: 'Ovidio & John',
-      team2: 'Steve & Mark',
-      hole: 18    
-    },{
-      id: 2,
-      team1: 'Ovidio & John',
-      team2: 'Steve & Mark',
-      hole: 1    
-    },{
-      id: 3,
-      team1: 'Ovidio & John',
-      team2: 'Steve & Mark',
-      hole: 8    
-    }]
+    matches: []
   });
   return store;
 }

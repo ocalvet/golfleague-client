@@ -29,6 +29,7 @@ class ScoreMatchPage extends React.Component {
 
   render() {
     const { match } = this.props.location.state;
+    console.log('MATCHasd', match);
     const hole = _.find(this.state.holes, { id: match.hole });
     let selections = null;
     if (hole) {
