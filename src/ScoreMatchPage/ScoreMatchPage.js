@@ -29,12 +29,12 @@ class ScoreMatchPage extends React.Component {
 
   render() {
     const { match } = this.props.location.state;
-    console.log('MATCHasd', match);
     const hole = _.find(this.state.holes, { id: match.hole });
     let selections = null;
     if (hole) {
       const maxPoints = hole.par === 3 ? 6 : 8;
-      const menuItems = _.range(1, maxPoints + 1)
+      const menuItems = _
+        .range(1, maxPoints + 1)
         .map(p => <MenuItem key={p} value={p}>{p}</MenuItem>);
       selections = <form 
       // className={classes.root} 
@@ -43,6 +43,7 @@ class ScoreMatchPage extends React.Component {
       <FormControl 
         // className={classes.formControl}
         >
+        <h4 style={{ marginBottom: 0, marginTop: 17 }}>{match.team1.players[0].name}</h4>
         <InputLabel htmlFor="score">Score</InputLabel>
         <Select
           value={this.state.score}
@@ -60,7 +61,9 @@ class ScoreMatchPage extends React.Component {
     }
     return (
       <div>
-        <h4>{match.team1} Vs. {match.team2}</h4>
+        <h4 style={{ textAlign: 'center' }}>{match.team1.players[0].name} & {match.team1.players[1].name}</h4>
+        <p style={{ textAlign: 'center' }}>Vs.</p> 
+        <h4 style={{ textAlign: 'center' }}>{match.team2.players[0].name} & {match.team2.players[1].name}</h4>
         <p>Current Hole: {match.hole}</p>
         {selections}
       </div>
