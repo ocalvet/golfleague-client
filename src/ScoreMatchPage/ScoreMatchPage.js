@@ -1,10 +1,8 @@
 import React from 'react';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import {getHoles} from '../shared/providers/holes';
 import * as _ from 'lodash';
+import { Typography } from '@material-ui/core';
+import PlayerHolePointsForm from './PlayerHolePointsForm/PlayerHolePointsForm';
 
 class ScoreMatchPage extends React.Component {
   state = {
@@ -30,34 +28,9 @@ class ScoreMatchPage extends React.Component {
   render() {
     const { match } = this.props.location.state;
     const hole = _.find(this.state.holes, { id: match.hole });
-    let selections = null;
+    let maxPoints = 8;
     if (hole) {
-      const maxPoints = hole.par === 3 ? 6 : 8;
-      const menuItems = _
-        .range(1, maxPoints + 1)
-        .map(p => <MenuItem key={p} value={p}>{p}</MenuItem>);
-      selections = <form 
-      // className={classes.root} 
-      autoComplete="off"
-      >
-      <FormControl 
-        // className={classes.formControl}
-        >
-        <h4 style={{ marginBottom: 0, marginTop: 17 }}>{match.team1.players[0].name}</h4>
-        <InputLabel htmlFor="score">Score</InputLabel>
-        <Select
-          value={this.state.score}
-          onChange={(e) => this.handleChange(e)}
-          inputProps={{
-            name: 'score',
-            id: 'score',
-          }}
-        >
-        {menuItems}
-        <MenuItem value={0}>Pick Up</MenuItem>
-        </Select>
-      </FormControl>
-    </form> 
+      maxPoints = hole.par === 3 ? 6 : 8;
     }
     return (
       <div>
@@ -65,7 +38,10 @@ class ScoreMatchPage extends React.Component {
         <p style={{ textAlign: 'center' }}>Vs.</p> 
         <h4 style={{ textAlign: 'center' }}>{match.team2.players[0].name} & {match.team2.players[1].name}</h4>
         <p>Current Hole: {match.hole}</p>
-        {selections}
+        <Typography variant="title">Team {match.team1.id}</Typography>
+        {match.team1.players.map(p => <PlayerHolePointsForm player={p} maxPoints={maxPoints}></PlayerHolePointsForm>)}
+        <Typography variant="title">Team {match.team2.id}</Typography>
+        {match.team2.players.map(p => <PlayerHolePointsForm player={p} maxPoints={maxPoints}></PlayerHolePointsForm>)}
       </div>
     )
   }
