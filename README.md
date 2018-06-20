@@ -1,5 +1,5 @@
 # Golf League Client Application
-An application to be use to score the golf games
+An application to be use to score the golf league games
 
 ## Instructions
 * Create an account on [Open Weather Map](https://openweathermap.org)
