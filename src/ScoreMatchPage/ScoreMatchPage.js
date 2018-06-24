@@ -39,9 +39,9 @@ class ScoreMatchPage extends React.Component {
         <h4 style={{ textAlign: 'center' }}>{match.team2.players[0].name} & {match.team2.players[1].name}</h4>
         <p>Current Hole: {match.hole}</p>
         <Typography variant="title">Team {match.team1.id}</Typography>
-        {match.team1.players.map(p => <PlayerHolePointsForm player={p} maxPoints={maxPoints}></PlayerHolePointsForm>)}
+        {match.team1.players.map((p, i) => <PlayerHolePointsForm key={i} player={p} maxPoints={maxPoints}></PlayerHolePointsForm>)}
         <Typography variant="title">Team {match.team2.id}</Typography>
-        {match.team2.players.map(p => <PlayerHolePointsForm player={p} maxPoints={maxPoints}></PlayerHolePointsForm>)}
+        {match.team2.players.map((p, i) => <PlayerHolePointsForm key={i} player={p} maxPoints={maxPoints}></PlayerHolePointsForm>)}
       </div>
     )
   }
