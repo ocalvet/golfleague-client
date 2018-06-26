@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../App';
+import Header from './Header';
 import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store';
 import { createShallow } from '@material-ui/core/test-utils';
 
-describe('<App />', () => {
+describe('<Header />', () => {
   const mockStore = configureStore()
   let store,container
 
   beforeEach(() => { 
     store = mockStore()
-    container = createShallow(<App store={store} /> )  
+    container = createShallow(<Header store={store} /> )  
   });
   
   it('renders without crashing', () => {
