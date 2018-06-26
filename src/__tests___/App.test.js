@@ -6,13 +6,11 @@ import configureStore from 'redux-mock-store';
 import { createShallow } from '@material-ui/core/test-utils';
 
 describe('<App />', () => {
-  let shallow;
-  const initialState = {output:100}
   const mockStore = configureStore()
   let store,container
 
   beforeEach(() => { 
-    store = mockStore(initialState)
+    store = mockStore()
     container = createShallow(<App store={store} /> )  
   });
   
