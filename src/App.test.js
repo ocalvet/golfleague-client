@@ -7,14 +7,20 @@ import { createShallow } from '@material-ui/core/test-utils';
 
 describe('<App />', () => {
   const mockStore = configureStore()
-  let store,container
+  let store,container, shallow;
 
   beforeEach(() => { 
-    store = mockStore()
-    container = createShallow(<App store={store} /> )  
+    shallow = createShallow();
+    store = mockStore();
+    container = shallow(<App store={store} />);
   });
   
   it('renders without crashing', () => {
+    console.log(container.debug());
     expect(container.length).toEqual(1);
   });
+
+  it('renders a WithStyles element', () => {
+    expect(container.find('WithStyles').length).toEqual(1);
+  })
 });
